@@ -204,9 +204,9 @@ the tests should work as expected.
 	StringWriter report = new StringWriter(500);
 
 	try {
-	    generateOutput = new FileWriter(generateOutputFName);
+	    generateOutput = new FileWriter(expectedOutputFName);
 	} catch (IOException f2exc) {
-	    assertTrue("Could not create '" + generateOutputFName + "'", false);
+	    assertTrue("Could not create '" + expectedOutputFName + "'", false);
 	    return;
 	};
 
@@ -248,8 +248,13 @@ the tests should work as expected.
 	public void test() {
 	    Network network = Network.DefaultExample();
 	    StringWriter report = new StringWriter(100);
-	    network.requestWorkstationPrintsDocument("UnknownWorkstation",
-					      "does not matter", "does not matter", report);
+	    try{
+	    	network.requestWorkstationPrintsDocument("UnknownWorkstation",
+				      "does not matter", "does not matter", report);
+	    } catch (NullPointerException e){
+	    	
+	    }
+	    
 	}
 
   
