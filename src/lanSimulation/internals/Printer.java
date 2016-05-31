@@ -7,4 +7,9 @@ public class Printer extends Node {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Printer(byte type, String name) {
+		// TODO Auto-generated constructor stub
+		super(type, name);
+	}
+
 }
